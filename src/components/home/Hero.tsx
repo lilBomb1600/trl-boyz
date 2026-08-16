@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { SpinViewer } from "@/components/product/SpinViewer";
 import { Container } from "@/components/ui/Container";
+import { BloodSplatter } from "@/components/ui/BloodSplatter";
+import { GothicWatermark } from "@/components/ui/GothicWatermark";
 import { products } from "@/data/products";
 
 export function Hero() {
@@ -12,7 +14,13 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden pb-16 pt-14 sm:pt-20">
-      <Container className="grid items-center gap-12 lg:grid-cols-2">
+      <BloodSplatter variant={1} className="pointer-events-none absolute -left-10 -top-10 w-64 sm:w-80" opacity={0.35} />
+      <BloodSplatter variant={2} className="pointer-events-none absolute -right-6 top-1/3 w-40 rotate-45 sm:w-56" opacity={0.25} />
+      <GothicWatermark
+        text="Memento Mori"
+        className="absolute bottom-2 right-4 text-3xl sm:text-4xl lg:text-5xl"
+      />
+      <Container className="relative grid items-center gap-12 lg:grid-cols-2">
         <div>
           <motion.p
             initial={{ opacity: 0, y: 10 }}

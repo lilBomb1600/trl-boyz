@@ -12,6 +12,7 @@
   --font-terminal: var(--font-mono);
   --font-body: var(--font-body);
   --font-horror: var(--font-horror);
+  --font-gothic: var(--font-gothic);
 }
 
 html {

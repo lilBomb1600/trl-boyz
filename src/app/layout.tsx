@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Rubik_Wet_Paint, Space_Mono, Inter, Nosifer } from "next/font/google";
+import { Rubik_Wet_Paint, Space_Mono, Inter, Nosifer, Pirata_One } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -10,6 +10,7 @@ const drip = Rubik_Wet_Paint({ subsets: ["latin"], weight: "400", variable: "--f
 const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-body" });
 const horror = Nosifer({ subsets: ["latin"], weight: "400", variable: "--font-horror" });
+const gothic = Pirata_One({ subsets: ["latin"], weight: "400", variable: "--font-gothic" });
 
 export const metadata: Metadata = {
   title: "TRL BOYZ | Making Money Instead Of Friends",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${drip.variable} ${mono.variable} ${inter.variable} ${horror.variable} h-full`}>
+    <html lang="en" className={`${drip.variable} ${mono.variable} ${inter.variable} ${horror.variable} ${gothic.variable} h-full`}>
       <body className="grain scanlines flex min-h-full flex-col bg-ink text-paper antialiased">
         <CartProvider>
           <Navbar />
