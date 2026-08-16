@@ -14,10 +14,17 @@ export default function Home() {
       <Marquee text="THEY WON'T FIND YOUR BODY" />
 
       <section className="relative overflow-hidden py-20 sm:py-24">
+        <BloodSplatter variant={2} className="pointer-events-none absolute -left-14 top-0 w-56 rotate-[160deg] sm:w-72" opacity={0.22} />
+        <BloodSplatter variant={1} className="pointer-events-none absolute right-8 top-1/2 w-36 rotate-[95deg] sm:w-48" opacity={0.18} />
         <AramaicWatermark
           text={ARAMAIC_PHRASES.talithaKoum}
           rotate={5}
           className="absolute -right-4 bottom-6 text-3xl opacity-30 sm:text-4xl"
+        />
+        <AramaicWatermark
+          text={ARAMAIC_PHRASES.maranatha}
+          rotate={-10}
+          className="absolute left-6 top-2 text-xl opacity-20 sm:text-2xl"
         />
         <Container className="relative">
           <div className="mb-10 flex items-end justify-between">
@@ -34,6 +41,8 @@ export default function Home() {
 
       <section className="relative overflow-hidden border-t border-line py-20 sm:py-24">
         <BloodSplatter variant={3} className="pointer-events-none absolute -bottom-16 -left-16 w-72 sm:w-96" opacity={0.3} />
+        <BloodSplatter variant={1} className="pointer-events-none absolute -right-10 -top-10 w-52 rotate-[220deg] sm:w-64" opacity={0.24} />
+        <BloodSplatter variant={2} className="pointer-events-none absolute bottom-0 right-1/3 w-32 sm:w-40" opacity={0.16} />
         <GothicWatermark
           text="Timor Mortis Conturbat Me"
           className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-lg sm:text-xl"
@@ -42,6 +51,11 @@ export default function Home() {
           text={ARAMAIC_PHRASES.maranatha}
           rotate={-4}
           className="absolute bottom-8 right-8 text-2xl opacity-30 sm:text-3xl"
+        />
+        <AramaicWatermark
+          text={ARAMAIC_PHRASES.talithaKoum}
+          rotate={12}
+          className="absolute left-8 top-1/3 text-xl opacity-20 sm:text-2xl"
         />
         <Container className="relative max-w-2xl text-center">
           <span className="stamp inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-red">

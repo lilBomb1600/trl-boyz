@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { GothicWatermark } from "@/components/ui/GothicWatermark";
 import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
+import { AnimatedSmokeLogo } from "@/components/ui/AnimatedSmokeLogo";
 import { business } from "@/data/business";
 
 export const metadata: Metadata = { title: "About | TRL BOYZ" };
@@ -13,6 +13,8 @@ export default function AboutPage() {
     <div className="relative overflow-hidden py-16 sm:py-24">
       <BloodSplatter variant={2} className="pointer-events-none absolute -right-16 -top-12 w-72 rotate-12 sm:w-96" opacity={0.3} />
       <BloodSplatter variant={3} className="pointer-events-none absolute -bottom-20 -left-14 w-64 -rotate-12 sm:w-80" opacity={0.25} />
+      <BloodSplatter variant={1} className="pointer-events-none absolute -left-10 top-1/3 w-40 rotate-[110deg] sm:w-56" opacity={0.18} />
+      <BloodSplatter variant={2} className="pointer-events-none absolute bottom-6 right-1/4 w-32 rotate-[300deg] sm:w-44" opacity={0.2} />
       <GothicWatermark
         text="Requiescat In Pace"
         className="absolute bottom-6 right-6 text-2xl sm:text-3xl"
@@ -21,6 +23,16 @@ export default function AboutPage() {
         text={ARAMAIC_PHRASES.talithaKoum}
         rotate={-8}
         className="absolute left-4 top-6 text-2xl opacity-30 sm:text-3xl"
+      />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.maranatha}
+        rotate={11}
+        className="absolute bottom-24 left-8 text-xl opacity-20 sm:text-2xl"
+      />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.talithaKoum}
+        rotate={-15}
+        className="absolute right-10 top-1/2 text-lg opacity-15 sm:text-xl"
       />
 
       <Container className="relative grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
@@ -38,16 +50,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-md">
-          <Image
-            src="/images/logo/trl-boyz-logo.jpg"
-            alt="TRL BOYZ brand artwork"
-            width={1300}
-            height={1300}
-            className="w-full drop-shadow-[0_0_40px_rgba(224,36,47,0.15)]"
-            priority
-          />
-        </div>
+        <AnimatedSmokeLogo className="relative mx-auto w-full max-w-md" />
       </Container>
     </div>
   );

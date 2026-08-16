@@ -17,6 +17,9 @@ export function Hero() {
     <section className="relative overflow-hidden pb-16 pt-14 sm:pt-20">
       <BloodSplatter variant={1} className="pointer-events-none absolute -left-10 -top-10 w-64 sm:w-80" opacity={0.35} />
       <BloodSplatter variant={2} className="pointer-events-none absolute -right-6 top-1/3 w-40 rotate-45 sm:w-56" opacity={0.25} />
+      <BloodSplatter variant={3} className="pointer-events-none absolute -bottom-24 left-1/4 w-48 rotate-12 sm:w-64" opacity={0.2} />
+      <BloodSplatter variant={1} className="pointer-events-none absolute right-1/4 top-4 w-32 rotate-[200deg] sm:w-44" opacity={0.18} />
+      <BloodSplatter variant={2} className="pointer-events-none absolute bottom-8 -right-12 w-40 sm:w-52" opacity={0.22} />
       <GothicWatermark
         text="Memento Mori"
         className="absolute bottom-2 right-4 text-3xl sm:text-4xl lg:text-5xl"
@@ -25,6 +28,16 @@ export function Hero() {
         text={ARAMAIC_PHRASES.maranatha}
         rotate={-6}
         className="absolute left-2 top-24 text-3xl opacity-40 sm:text-4xl"
+      />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.talithaKoum}
+        rotate={9}
+        className="absolute bottom-12 left-1/3 text-2xl opacity-25 sm:text-3xl"
+      />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.maranatha}
+        rotate={-14}
+        className="absolute right-1/3 top-1/2 text-xl opacity-20 sm:text-2xl"
       />
       <Container className="relative grid items-center gap-12 lg:grid-cols-2">
         <div>
