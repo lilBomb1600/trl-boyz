@@ -6,6 +6,7 @@ import { SpinViewer } from "@/components/product/SpinViewer";
 import { Container } from "@/components/ui/Container";
 import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { GothicWatermark } from "@/components/ui/GothicWatermark";
+import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { products } from "@/data/products";
 
 export function Hero() {
@@ -19,6 +20,11 @@ export function Hero() {
       <GothicWatermark
         text="Memento Mori"
         className="absolute bottom-2 right-4 text-3xl sm:text-4xl lg:text-5xl"
+      />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.maranatha}
+        rotate={-6}
+        className="absolute left-2 top-24 text-3xl opacity-40 sm:text-4xl"
       />
       <Container className="relative grid items-center gap-12 lg:grid-cols-2">
         <div>

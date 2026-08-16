@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { GothicWatermark } from "@/components/ui/GothicWatermark";
+import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { business } from "@/data/business";
 
 export const metadata: Metadata = { title: "About | TRL BOYZ" };
@@ -15,18 +17,36 @@ export default function AboutPage() {
         text="Requiescat In Pace"
         className="absolute bottom-6 right-6 text-2xl sm:text-3xl"
       />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.talithaKoum}
+        rotate={-8}
+        className="absolute left-4 top-6 text-2xl opacity-30 sm:text-3xl"
+      />
 
-      <Container className="relative max-w-2xl">
-        <span className="terminal-label font-terminal text-xs uppercase tracking-[0.15em] text-red">
-          The Story
-        </span>
-        <h1 className="font-gothic drip-underline mt-4 text-5xl text-paper sm:text-6xl">TRL BOYZ</h1>
-        <p className="mt-10 text-balance text-lg leading-relaxed text-paper/70">{business.description}</p>
+      <Container className="relative grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div>
+          <span className="terminal-label font-terminal text-xs uppercase tracking-[0.15em] text-red">
+            The Story
+          </span>
+          <h1 className="font-gothic drip-underline mt-4 text-5xl text-paper sm:text-6xl">TRL BOYZ</h1>
+          <p className="mt-10 text-balance text-lg leading-relaxed text-paper/70">{business.description}</p>
 
-        <div className="mt-14 border-t border-line pt-10">
-          <p className="font-horror text-balance text-lg leading-relaxed text-red sm:text-xl">
-            Wear it while your heart still beats.
-          </p>
+          <div className="mt-14 border-t border-line pt-10">
+            <p className="font-horror text-balance text-lg leading-relaxed text-red sm:text-xl">
+              Wear it while your heart still beats.
+            </p>
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-md">
+          <Image
+            src="/images/logo/trl-boyz-logo.jpg"
+            alt="TRL BOYZ brand artwork"
+            width={1300}
+            height={1300}
+            className="w-full drop-shadow-[0_0_40px_rgba(224,36,47,0.15)]"
+            priority
+          />
         </div>
       </Container>
     </div>

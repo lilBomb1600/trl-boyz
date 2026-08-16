@@ -30,7 +30,7 @@ export const products: Product[] = [
         hex: "#2f7fe0",
         front: "/images/products/trl-boyz-blue-front.png",
         back: "/images/products/trl-boyz-blue-back.png",
-        ready: false,
+        ready: true,
       },
       {
         id: "red",
@@ -38,7 +38,7 @@ export const products: Product[] = [
         hex: "#e0242f",
         front: "/images/products/trl-boyz-red-front.png",
         back: "/images/products/trl-boyz-red-back.png",
-        ready: false,
+        ready: true,
       },
       {
         id: "gold",
@@ -46,7 +46,7 @@ export const products: Product[] = [
         hex: "#e3b02c",
         front: "/images/products/trl-boyz-gold-front.png",
         back: "/images/products/trl-boyz-gold-back.png",
-        ready: false,
+        ready: true,
       },
     ],
   },

@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ProductCard } from "@/components/shop/ProductCard";
+import { BloodSplatter } from "@/components/ui/BloodSplatter";
+import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { products } from "@/data/products";
 
 export const metadata: Metadata = { title: "Shop | TRL BOYZ" };
 
 export default function ShopPage() {
   return (
-    <div className="py-16 sm:py-20">
-      <Container>
+    <div className="relative overflow-hidden py-16 sm:py-20">
+      <BloodSplatter variant={1} className="pointer-events-none absolute -right-12 -top-8 w-56 rotate-90 sm:w-72" opacity={0.3} />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.maranatha}
+        rotate={4}
+        className="absolute bottom-4 left-4 text-2xl opacity-30 sm:text-3xl"
+      />
+      <Container className="relative">
         <h1 className="font-display text-4xl tracking-wide text-paper sm:text-5xl">Shop</h1>
         <p className="mt-3 max-w-md text-sm text-paper/50">Everything currently up. When it's gone, it's gone.</p>
 

@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
 import { Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { BloodSplatter } from "@/components/ui/BloodSplatter";
+import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { business } from "@/data/business";
 
 export const metadata: Metadata = { title: "Contact | TRL BOYZ" };
 
 export default function ContactPage() {
   return (
-    <div className="py-16 sm:py-24">
-      <Container className="max-w-xl">
+    <div className="relative overflow-hidden py-16 sm:py-24">
+      <BloodSplatter variant={2} className="pointer-events-none absolute -bottom-10 -right-10 w-56 rotate-180 sm:w-72" opacity={0.28} />
+      <AramaicWatermark
+        text={ARAMAIC_PHRASES.talithaKoum}
+        rotate={6}
+        className="absolute right-8 top-8 text-2xl opacity-30 sm:text-3xl"
+      />
+      <Container className="relative max-w-xl">
         <span className="text-xs font-bold uppercase tracking-[0.3em] text-red">Contact</span>
         <h1 className="mt-4 font-display text-4xl tracking-wide text-paper sm:text-5xl">Get At Us</h1>
         <p className="mt-6 text-sm leading-relaxed text-paper/60">

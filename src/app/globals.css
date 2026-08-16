@@ -13,6 +13,7 @@
   --font-body: var(--font-body);
   --font-horror: var(--font-horror);
   --font-gothic: var(--font-gothic);
+  --font-aramaic: var(--font-aramaic);
 }
 
 html {
@@ -59,6 +60,16 @@ body {
     transparent 1px,
     transparent 3px
   );
+}
+
+.aramaic-text {
+  font-family: var(--font-aramaic);
+  color: var(--color-red);
+  text-shadow:
+    0 2px 0 rgba(224, 36, 47, 0.5),
+    0 6px 10px rgba(224, 36, 47, 0.35),
+    0 1px 1px rgba(0, 0, 0, 0.8);
+  filter: blur(0.3px);
 }
 
 .terminal-label {
