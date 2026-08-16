@@ -19,10 +19,17 @@ html {
   scroll-behavior: smooth;
 }
 
+a,
+button,
+[role="button"] {
+  cursor: url("/cursors/blood-drop.svg") 10 6, pointer;
+}
+
 body {
   background: var(--color-ink);
   color: var(--color-paper);
   font-family: var(--font-body);
+  cursor: url("/cursors/dagger.svg") 4 4, auto;
 }
 
 /* Film-grain noise overlay, fixed over the whole viewport */

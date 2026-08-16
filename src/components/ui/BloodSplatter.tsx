@@ -1,7 +1,48 @@
-const variants: Record<number, string> = {
-  1: "M120 20c14-18 42-20 55-2 10 14 4 30 18 38 16 9 32 2 42 16 9 13-2 28-16 32-8 2-10 12-20 14-22 4-34-14-54-10-16 3-24 20-42 16-16-4-18-24-32-30-12-5-26 0-34-12-8-11 2-24 14-28 10-3 12-14 22-20 12-7 26-2 34-2 6-8 6-16 13-12z M40 150c6-8 18-8 22 0 3 6-2 12 4 16 7 4 14-2 18 6 3 7-4 12-12 13-4 6-12 6-18 2-8-5-6-14-14-18-6-3-12 0-16-6-4-7 2-12 8-14 3-4 4-4 8 1z M210 130c8-6 18-2 20 6 2 6-4 10 2 15 6 4 13-1 16 6 3 6-3 11-10 12-5 5-12 3-16-2-6-6-2-13-9-17-5-3-11 0-14-5-4-6 3-11 11-15z",
-  2: "M60 30c10-14 30-16 40-4 8 10 2 22 14 28 12 6 24 0 32 12 7 11-2 22-13 25-6 2-8 10-16 11-16 3-26-10-40-8-12 2-18 15-32 12-12-3-13-18-24-22-10-4-20 1-26-8-6-9 3-19 12-22 8-3 10-11 17-16 9-6 20-2 26-2 4-7 4-13 10-6z M180 100c5-6 14-6 17 1 2 5-2 9 3 12 5 3 10-1 13 4 2 5-3 8-8 9-3 4-9 3-12-1-4-4-1-9-6-12-4-2-8 0-11-4-3-5 1-8 4-9z",
-  3: "M90 15c12-16 36-17 47-2 8 12 3 25 15 32 14 7 27 0 35 13 8 12-2 25-14 28-7 2-9 11-18 12-19 3-29-12-46-9-13 2-20 17-35 13-13-3-15-20-27-25-11-4-22 1-29-9-7-10 3-21 13-24 9-3 11-13 19-18 10-6 22-2 29-2 5-8 5-15 11-9z M20 130c5-7 15-7 19 1 3 6-2 10 4 14 6 3 12-2 15 5 3 6-3 10-9 12-4 5-11 4-15-1-5-5-1-11-8-14-5-3-9 0-13-5-4-6 2-10 7-12z M200 160c4-5 11-5 14 1 2 4-2 8 3 10 4 3 9-1 11 4 2 4-2 7-7 8-3 4-8 3-11-1-3-4 0-8-4-10-4-2-7 0-9-4-2-4 1-6 3-8z",
+"use client";
+
+import { useId } from "react";
+
+type Drop = { cx: number; cy: number; rx: number; ry: number; rot: number };
+
+// Deterministic pseudo-random spatter fields (no Math.random — stays identical between server/client render)
+const fields: Record<number, Drop[]> = {
+  1: [
+    { cx: 130, cy: 90, rx: 46, ry: 40, rot: 12 },
+    { cx: 95, cy: 60, rx: 14, ry: 10, rot: -20 },
+    { cx: 175, cy: 55, rx: 10, ry: 22, rot: 60 },
+    { cx: 60, cy: 110, rx: 8, ry: 16, rot: 100 },
+    { cx: 200, cy: 100, rx: 12, ry: 8, rot: -40 },
+    { cx: 40, cy: 70, rx: 6, ry: 6, rot: 0 },
+    { cx: 215, cy: 140, rx: 5, ry: 12, rot: 70 },
+    { cx: 150, cy: 150, rx: 9, ry: 18, rot: 140 },
+    { cx: 100, cy: 155, rx: 6, ry: 6, rot: 0 },
+    { cx: 20, cy: 40, rx: 5, ry: 9, rot: 40 },
+    { cx: 190, cy: 30, rx: 4, ry: 4, rot: 0 },
+    { cx: 240, cy: 80, rx: 6, ry: 10, rot: -30 },
+    { cx: 70, cy: 20, rx: 4, ry: 8, rot: 100 },
+    { cx: 130, cy: 30, rx: 5, ry: 5, rot: 0 },
+  ],
+  2: [
+    { cx: 60, cy: 60, rx: 30, ry: 26, rot: -10 },
+    { cx: 100, cy: 90, rx: 10, ry: 20, rot: 60 },
+    { cx: 30, cy: 100, rx: 8, ry: 14, rot: 120 },
+    { cx: 90, cy: 40, rx: 6, ry: 6, rot: 0 },
+    { cx: 15, cy: 50, rx: 5, ry: 10, rot: 30 },
+    { cx: 120, cy: 60, rx: 4, ry: 8, rot: 80 },
+    { cx: 50, cy: 20, rx: 4, ry: 4, rot: 0 },
+    { cx: 105, cy: 110, rx: 5, ry: 9, rot: 150 },
+  ],
+  3: [
+    { cx: 120, cy: 100, rx: 40, ry: 34, rot: 8 },
+    { cx: 170, cy: 70, rx: 12, ry: 22, rot: -50 },
+    { cx: 70, cy: 130, rx: 9, ry: 16, rot: 110 },
+    { cx: 190, cy: 120, rx: 7, ry: 12, rot: 20 },
+    { cx: 50, cy: 70, rx: 6, ry: 11, rot: 60 },
+    { cx: 200, cy: 40, rx: 5, ry: 5, rot: 0 },
+    { cx: 30, cy: 40, rx: 5, ry: 9, rot: -30 },
+    { cx: 150, cy: 160, rx: 6, ry: 6, rot: 0 },
+    { cx: 100, cy: 40, rx: 4, ry: 8, rot: 90 },
+  ],
 };
 
 export function BloodSplatter({
@@ -13,14 +54,22 @@ export function BloodSplatter({
   className?: string;
   opacity?: number;
 }) {
+  const filterId = useId();
+  const drops = fields[variant];
+
   return (
-    <svg
-      viewBox="0 0 260 200"
-      className={className}
-      aria-hidden
-      style={{ opacity }}
-    >
-      <path d={variants[variant]} fill="var(--color-red)" />
+    <svg viewBox="0 0 260 200" className={className} aria-hidden style={{ opacity }}>
+      <defs>
+        <filter id={filterId} x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.04 0.09" numOctaves="2" seed={variant * 7} result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+      <g filter={`url(#${filterId})`} fill="var(--color-red)">
+        {drops.map((d, i) => (
+          <ellipse key={i} cx={d.cx} cy={d.cy} rx={d.rx} ry={d.ry} transform={`rotate(${d.rot} ${d.cx} ${d.cy})`} />
+        ))}
+      </g>
     </svg>
   );
 }

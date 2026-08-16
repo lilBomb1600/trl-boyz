@@ -5,6 +5,7 @@ import { ShoppingBag, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Container } from "@/components/ui/Container";
 import { useCart } from "./CartProvider";
+import { SignUpGate } from "./SignUpGate";
 
 const links = [
   { href: "/shop", label: "Shop" },
@@ -33,6 +34,13 @@ export function Navbar() {
               [{l.label}]
             </Link>
           ))}
+          <SignUpGate
+            trigger={
+              <span className="glitch-hover font-terminal text-xs uppercase tracking-[0.1em] text-paper/70 transition-colors hover:text-paper">
+                [Sign Up]
+              </span>
+            }
+          />
         </nav>
 
         <div className="flex items-center gap-4">
@@ -63,6 +71,13 @@ export function Navbar() {
                 [{l.label}]
               </Link>
             ))}
+            <SignUpGate
+              trigger={
+                <span className="font-terminal block py-2 text-left text-sm uppercase tracking-[0.1em] text-paper/80">
+                  [Sign Up]
+                </span>
+              }
+            />
           </Container>
         </div>
       )}
