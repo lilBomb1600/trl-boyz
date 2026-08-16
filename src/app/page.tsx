@@ -3,13 +3,12 @@ import { Marquee } from "@/components/home/Marquee";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { Container } from "@/components/ui/Container";
 import { products } from "@/data/products";
-import { business } from "@/data/business";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Marquee text={business.tagline} />
+      <Marquee text="THEY WON'T FIND YOUR BODY IN THIS FIT" />
 
       <section className="py-20 sm:py-24">
         <Container>
@@ -28,10 +27,12 @@ export default function Home() {
       <section className="border-t border-line py-20 sm:py-24">
         <Container className="max-w-2xl text-center">
           <span className="stamp inline-block px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-red">
-            Limited Run
+            Get It Before You Die
           </span>
-          <p className="mt-8 text-balance font-display text-2xl leading-snug tracking-wide text-paper sm:text-3xl">
-            {business.description}
+          <p className="font-horror mt-10 text-balance text-xl leading-relaxed text-red sm:text-2xl">
+            Every drop disappears without warning.
+            <br />
+            So will you.
           </p>
         </Container>
       </section>

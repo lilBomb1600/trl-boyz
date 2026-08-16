@@ -11,6 +11,7 @@
   --font-display: var(--font-drip);
   --font-terminal: var(--font-mono);
   --font-body: var(--font-body);
+  --font-horror: var(--font-horror);
 }
 
 html {
