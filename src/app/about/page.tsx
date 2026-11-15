@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Container } from "@/components/ui/Container";
 import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { GothicWatermark } from "@/components/ui/GothicWatermark";
@@ -6,7 +7,7 @@ import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWaterm
 import { AnimatedSmokeLogo } from "@/components/ui/AnimatedSmokeLogo";
 import { business } from "@/data/business";
 
-export const metadata: Metadata = { title: "About | TRL BOYZ" };
+export const metadata = pageMetadata(pageCopy.about);
 
 export default function AboutPage() {
   return (

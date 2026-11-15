@@ -5,6 +5,10 @@ import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { ProductDetail } from "@/components/product/ProductDetail";
 import { getProduct, products } from "@/data/products";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { productPageCopy } from "@/lib/seo/copy";
+import { productJsonLd } from "@/lib/seo/store";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -14,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
-  return { title: `${product.name} | TRL BOYZ` };
+  return pageMetadata(productPageCopy(product));
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -24,6 +28,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="relative overflow-hidden">
+      <JsonLd data={productJsonLd(product)} />
       <BloodSplatter variant={3} className="pointer-events-none absolute -left-14 -top-10 w-56 rotate-[130deg] sm:w-72" opacity={0.24} />
       <BloodSplatter variant={1} className="pointer-events-none absolute -right-10 bottom-1/4 w-44 rotate-[250deg] sm:w-56" opacity={0.2} />
       <AramaicWatermark

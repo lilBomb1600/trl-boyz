@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { business } from "@/data/business";
 
-export const metadata: Metadata = { title: "Contact | TRL BOYZ" };
+export const metadata = pageMetadata(pageCopy.contact);
 
 export default function ContactPage() {
   return (

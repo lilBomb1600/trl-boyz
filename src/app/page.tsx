@@ -6,6 +6,10 @@ import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { GothicWatermark } from "@/components/ui/GothicWatermark";
 import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { products } from "@/data/products";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
+
+export const metadata = pageMetadata(pageCopy.home);
 
 export default function Home() {
   return (

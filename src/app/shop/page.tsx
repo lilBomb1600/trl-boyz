@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { pageCopy } from "@/lib/seo/copy";
 import { Container } from "@/components/ui/Container";
 import { ProductCard } from "@/components/shop/ProductCard";
 import { BloodSplatter } from "@/components/ui/BloodSplatter";
 import { AramaicWatermark, ARAMAIC_PHRASES } from "@/components/ui/AramaicWatermark";
 import { products } from "@/data/products";
 
-export const metadata: Metadata = { title: "Shop | TRL BOYZ" };
+export const metadata = pageMetadata(pageCopy.shop);
 
 export default function ShopPage() {
   return (
